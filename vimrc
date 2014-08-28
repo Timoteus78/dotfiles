@@ -19,6 +19,9 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neocomplete'
 
  call neobundle#end()
 
@@ -44,4 +47,5 @@ call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', join([
         \ ], '\|'))
 " Note: with large projects this may cause some performance problems. Normally it is recommended to use unite-source-file_rec/async source, which requires vimproc.
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>r :<C-u>Unite -start-insert file_rec<CR>
+nnoremap <c-f> :Unite -start-insert file_rec<CR>
+let g:neocomplete#enable_at_startup = 1
