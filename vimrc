@@ -69,4 +69,4 @@ let g:neocomplete#enable_at_startup = 1
     endif
 
  " vim-indent-guides
- 
+ let g:indent_guides_enable_on_vim_startup = 1
