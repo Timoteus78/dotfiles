@@ -24,6 +24,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
  call neobundle#end()
 
@@ -66,3 +67,6 @@ let g:neocomplete#enable_at_startup = 1
       let g:syntastic_enable_signs=1
       set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
     endif
+
+ " vim-indent-guides
+ 
