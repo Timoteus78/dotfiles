@@ -10,15 +10,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'marijnh/tern_for_vim'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/unite.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'pangloss/vim-javascript'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'mustache/vim-mustache-handlebars'
-"tern plugin to make YouCompleteMe plugin work smarter for js
-"http://tilvim.com/2013/08/21/js-autocomplete.html
-Plugin 'marijnh/tern_for_vim'
-" Commented out as I do not know how to use it
+Plugin 'bling/vim-airline'
 " Plugin 'Shougo/vimproc.vim'
 
 " All of your Plugins must be added before the following line
@@ -38,16 +36,10 @@ filetype plugin indent on    " required
 
 " My settings
 set nu
-
-"Vundle | NERDTree
+set nowrap
+" NerdTree
 nnoremap <leader>t :<C-u> NERDTree<CR>
-
-"Vundle | altercation/vim-colors-solarized
-syntax enable
-set background=dark "overriding bg color possible from OS X 10.7+
-colorscheme solarized
-
-"Vundle | Shougo/unite.vim
+" Unite
 call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', join([
         \ '\.git\/',
         \ '\.svn\/',
@@ -55,7 +47,14 @@ call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', join([
         \ 'node_modules',
         \ 'vendor'
         \ ], '\|'))
-" Note: with large projects this may cause some performance problems. Normally it is recommended to use unite-source-file_rec/async source, which requires vimproc.
+	" Note: with large projects this may cause some performance problems. Normally it is recommended to use unite-source-file_rec/async source, which requires vimproc.
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec<CR>
+" Solarized
+syntax enable
+set background=dark "overriding bg color possible from OS X 10.7+
+colorscheme solarized
+" Airline
+set laststatus=2
+" marijnh/tern_for_vim
 
