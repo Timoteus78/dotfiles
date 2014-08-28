@@ -23,6 +23,7 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'tpope/vim-fugitive'
 
  call neobundle#end()
 
@@ -51,4 +52,17 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <c-f> :Unite -start-insert file_rec<CR>
 let g:neocomplete#enable_at_startup = 1
 " Airline
-set laststatus=2
+    if has('statusline')
+      set laststatus=2
+      " Broken down into easily includeable segments
+      set statusline=%<%f\    " Filename
+      set statusline+=%w%h%m%r " Options
+      set statusline+=%{fugitive#statusline()} "  Git Hotness
+      set statusline+=\ [%{&ff}/%Y]            " filetype
+      set statusline+=\ [%{getcwd()}]          " current dir
+      set statusline+=%#warningmsg#
+    "  set statusline+=%{SyntasticStatuslineFlag()}
+      set statusline+=%*
+      let g:syntastic_enable_signs=1
+      set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+    endif
