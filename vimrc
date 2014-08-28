@@ -25,6 +25,7 @@ NeoBundle 'Shougo/neocomplete'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'Raimondi/delimitMate'
 
  call neobundle#end()
 
