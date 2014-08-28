@@ -22,6 +22,7 @@ NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplete'
+NeoBundle 'bling/vim-airline'
 
  call neobundle#end()
 
@@ -49,3 +50,5 @@ call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', join([
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <c-f> :Unite -start-insert file_rec<CR>
 let g:neocomplete#enable_at_startup = 1
+" Airline
+set laststatus=2
